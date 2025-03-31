@@ -1,0 +1,105 @@
+2024-01-24 21:59:21.574 | INFO     | api.api_video:main:13 - receive request [video_node_list]
+2024-01-24 21:59:21.574 | INFO     | mysql.connector:query:16 - SELECT `node`,max(sort) FROM `tv_228334` GROUP BY `node`;
+2024-01-24 21:59:21.667 | ERROR    | __main__:app_api_video:42 - An error has been caught in function 'app_api_video', process 'MainProcess' (24070), thread 'Thread-2' (123145345486848):
+Traceback (most recent call last):
+
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10217f670>
+    └ <Thread(Thread-2, started daemon 123145345486848)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x10217f3a0>
+    └ <Thread(Thread-2, started daemon 123145345486848)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-2, started daemon 123145345486848)>
+    │    │        │    └ (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 80), raddr=('12...
+    │    │        └ <Thread(Thread-2, started daemon 123145345486848)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <werkzeug.serving.ThreadedWSGIServer object at 0x1036c2a30>>
+    └ <Thread(Thread-2, started daemon 123145345486848)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 51222)
+    │    │              └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 80), raddr=('127...
+    │    └ <function BaseServer.finish_request at 0x1028444c0>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x1036c2a30>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <werkzeug.serving.ThreadedWSGIServer object at 0x1036c2a30>
+    │    │                   │        └ ('127.0.0.1', 51222)
+    │    │                   └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 80), raddr=('127...
+    │    └ <class 'werkzeug.serving.WSGIRequestHandler'>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x1036c2a30>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x102b0c1f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x103736a90>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 363, in handle
+    super().handle()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+    │    └ <function BaseHTTPRequestHandler.handle_one_request at 0x102aac1f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x103736a90>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+    └ <bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x103736a90>>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 335, in run_wsgi
+    execute(self.server.app)
+    │       │    │      └ <werkzeug.debug.DebuggedApplication object at 0x103661d30>
+    │       │    └ <werkzeug.serving.ThreadedWSGIServer object at 0x1036c2a30>
+    │       └ <werkzeug.serving.WSGIRequestHandler object at 0x103736a90>
+    └ <function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x103a71c10>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 324, in execute
+    for data in application_iter:
+                └ <generator object DebuggedApplication.debug_application at 0x10372ef20>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/debug/__init__.py", line 329, in debug_application
+    app_iter = self.app(environ, start_response)
+               │    │   │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x1039ce8b0>
+               │    │   └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+               │    └ <Flask 'task'>
+               └ <werkzeug.debug.DebuggedApplication object at 0x103661d30>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+           │    │        │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x1039ce8b0>
+           │    │        └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+           │    └ <function Flask.wsgi_app at 0x103076f70>
+           └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               │    └ <function Flask.full_dispatch_request at 0x103076430>
+               └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         │    └ <function Flask.dispatch_request at 0x1030763a0>
+         └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           │    │           │    │              │    │            └ {}
+           │    │           │    │              │    └ 'app_api_video'
+           │    │           │    │              └ <Rule '/api/video' (POST, HEAD, GET, OPTIONS) -> app_api_video>
+           │    │           │    └ {'static': <function Flask.__init__.<locals>.<lambda> at 0x1036be5e0>, 'index': <function index at 0x1036be550>, 'terms': <fu...
+           │    │           └ <Flask 'task'>
+           │    └ <function Flask.ensure_sync at 0x103076700>
+           └ <Flask 'task'>
+
+> File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/task.py", line 42, in app_api_video
+    return api_video.main()
+           │         └ <function main at 0x103679f70>
+           └ <module 'api.api_video' from '/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py'>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 46, in main
+    data = __fetch_video_node_list__(int(id))
+           │                             └ '228334'
+           └ <function __fetch_video_node_list__ at 0x1036be430>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 183, in __fetch_video_node_list__
+    for row in result:
+               └ None
+
+TypeError: 'NoneType' object is not iterable
+2024-01-24 22:00:41.168 | INFO     | api.api_video:main:13 - receive request [video_node_list]
+2024-01-24 22:00:41.169 | INFO     | mysql.connector:query:16 - SELECT `node`,max(sort) FROM `tv_228344` GROUP BY `node`;
+2024-01-24 22:05:05.524 | INFO     | api.api_video:main:13 - receive request [video_play_info]
+2024-01-24 22:05:05.525 | INFO     | mysql.connector:query:16 - SELECT `url` FROM `tv_228344` WHERE `node` = 'panel10' AND `sort` = 1;

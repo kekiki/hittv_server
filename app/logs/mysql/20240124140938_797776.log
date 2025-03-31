@@ -1,0 +1,5 @@
+2024-01-24 14:18:13.154 | INFO     | api.api_video:main:13 - receive request [category_list]
+2024-01-24 14:18:13.155 | INFO     | mysql.connector:query:16 - 
+        SELECT * FROM `tv` WHERE `type` = '电视剧' AND `tags` LIKE '%剧情%' AND `publish_date` = 2023 AND `is_end` = 0
+        ORDER BY `created_at` DESC LIMIT 0,20;
+        

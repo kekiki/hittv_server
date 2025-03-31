@@ -1,0 +1,20 @@
+2024-01-24 14:54:38.850 | INFO     | api.api_video:main:13 - receive request [search_list]
+2024-01-24 14:54:38.851 | INFO     | mysql.connector:query:16 - 
+        SELECT * FROM `tv` WHERE `title` LIKE '%2%' 
+        OR `directors` LIKE '%2%' 
+        OR `scriptwriters` LIKE '%2%' 
+        OR `actors` LIKE '%2%' 
+        OR `tags` LIKE '%2%' 
+        ORDER BY `created_at` DESC LIMIT 0,20;
+        
+2024-01-24 14:59:00.664 | INFO     | api.api_video:main:13 - receive request [search_list]
+2024-01-24 14:59:00.665 | INFO     | mysql.connector:query:16 - 
+        SELECT * FROM `tv` WHERE `title` LIKE '%2%' 
+        OR `directors` LIKE '%2%' 
+        OR `scriptwriters` LIKE '%2%' 
+        OR `actors` LIKE '%2%' 
+        OR `tags` LIKE '%2%' 
+        ORDER BY `created_at` DESC LIMIT 0,20;
+        
+2024-01-24 14:59:05.277 | INFO     | api.api_video:main:13 - receive request [search_hot_list]
+2024-01-24 14:59:05.278 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 20;

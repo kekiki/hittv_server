@@ -1,0 +1,10 @@
+2024-01-24 11:48:49.290 | INFO     | api.api_video:main:13 - receive request [category_list]
+2024-01-24 11:48:49.292 | INFO     | mysql.connector:query:16 - 
+        SELECT * FROM `tv` WHERE `type` != ''   ' 
+        ORDER BY `created_at` DESC LIMIT 0,20;
+        
+2024-01-24 11:50:56.225 | INFO     | api.api_video:main:13 - receive request [category_list]
+2024-01-24 11:50:56.225 | INFO     | mysql.connector:query:16 - 
+        SELECT * FROM `tv` WHERE `type` = '电视剧'   ' 
+        ORDER BY `created_at` DESC LIMIT 0,20;
+        

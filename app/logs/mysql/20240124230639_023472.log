@@ -1,0 +1,17 @@
+2024-01-24 23:09:34.808 | INFO     | api.api_video:main:13 - receive request [home_list]
+2024-01-24 23:09:34.810 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 23:09:34.962 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '电视剧' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 23:09:34.980 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '电影' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 23:09:34.992 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '动漫' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 23:09:35.762 | INFO     | api.api_video:main:13 - receive request [home]
+2024-01-24 23:09:35.931 | INFO     | api.api_video:main:13 - receive request [home_list]
+2024-01-24 23:09:35.931 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 23:09:35.940 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '电视剧' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 23:09:35.948 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '电影' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 23:09:35.964 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '动漫' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 23:09:37.215 | INFO     | api.api_video:main:13 - receive request [search_hot_list]
+2024-01-24 23:09:37.215 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 20;
+2024-01-24 23:21:19.980 | INFO     | api.api_video:main:13 - receive request [search_hot_list]
+2024-01-24 23:21:19.982 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 20;
+2024-01-24 23:21:50.327 | INFO     | api.api_video:main:13 - receive request [search_hot_list]
+2024-01-24 23:21:50.328 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 20;

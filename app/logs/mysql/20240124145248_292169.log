@@ -1,0 +1,116 @@
+2024-01-24 14:53:00.258 | INFO     | api.api_video:main:13 - receive request [category]
+2024-01-24 14:53:57.128 | INFO     | api.api_video:main:13 - receive request [search]
+2024-01-24 14:53:59.625 | INFO     | api.api_video:main:13 - receive request [search_list]
+2024-01-24 14:53:59.625 | INFO     | mysql.connector:query:16 - 
+        SELECT * FROM `tv` WHERE `title` LIKE '%2%' 
+        OR `directors` LIKE '%2%' 
+        OR `scriptwriters` LIKE '%2%' 
+        OR `actors` LIKE '%2%' 
+        OR `tags` LIKE '%2%' 
+        ORDER BY `created_at` DESC LIMIT 0,20;
+        
+2024-01-24 14:53:59.633 | ERROR    | __main__:app_api_video:42 - An error has been caught in function 'app_api_video', process 'MainProcess' (86631), thread 'Thread-4' (123145569697792):
+Traceback (most recent call last):
+
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x107f0a670>
+    └ <Thread(Thread-4, started daemon 123145569697792)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x107f0a3a0>
+    └ <Thread(Thread-4, started daemon 123145569697792)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-4, started daemon 123145569697792)>
+    │    │        │    └ (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 80), raddr=('12...
+    │    │        └ <Thread(Thread-4, started daemon 123145569697792)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <werkzeug.serving.ThreadedWSGIServer object at 0x10944da90>>
+    └ <Thread(Thread-4, started daemon 123145569697792)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 51686)
+    │    │              └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 80), raddr=('127...
+    │    └ <function BaseServer.finish_request at 0x1085cf4c0>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x10944da90>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <werkzeug.serving.ThreadedWSGIServer object at 0x10944da90>
+    │    │                   │        └ ('127.0.0.1', 51686)
+    │    │                   └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 80), raddr=('127...
+    │    └ <class 'werkzeug.serving.WSGIRequestHandler'>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x10944da90>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x1088971f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x1094c0d60>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 363, in handle
+    super().handle()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+    │    └ <function BaseHTTPRequestHandler.handle_one_request at 0x1088371f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x1094c0d60>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+    └ <bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x1094c0d60>>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 335, in run_wsgi
+    execute(self.server.app)
+    │       │    │      └ <werkzeug.debug.DebuggedApplication object at 0x1093edd90>
+    │       │    └ <werkzeug.serving.ThreadedWSGIServer object at 0x10944da90>
+    │       └ <werkzeug.serving.WSGIRequestHandler object at 0x1094c0d60>
+    └ <function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x1097b6f70>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 324, in execute
+    for data in application_iter:
+                └ <generator object DebuggedApplication.debug_application at 0x109766890>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/debug/__init__.py", line 329, in debug_application
+    app_iter = self.app(environ, start_response)
+               │    │   │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x10982eca0>
+               │    │   └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+               │    └ <Flask 'task'>
+               └ <werkzeug.debug.DebuggedApplication object at 0x1093edd90>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+           │    │        │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x10982eca0>
+           │    │        └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+           │    └ <function Flask.wsgi_app at 0x108e02f70>
+           └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               │    └ <function Flask.full_dispatch_request at 0x108e02430>
+               └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         │    └ <function Flask.dispatch_request at 0x108e023a0>
+         └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           │    │           │    │              │    │            └ {}
+           │    │           │    │              │    └ 'app_api_video'
+           │    │           │    │              └ <Rule '/api/video' (HEAD, POST, GET, OPTIONS) -> app_api_video>
+           │    │           │    └ {'static': <function Flask.__init__.<locals>.<lambda> at 0x109449550>, 'index': <function index at 0x1094494c0>, 'terms': <fu...
+           │    │           └ <Flask 'task'>
+           │    └ <function Flask.ensure_sync at 0x108e02700>
+           └ <Flask 'task'>
+
+> File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/task.py", line 42, in app_api_video
+    return api_video.main()
+           │         └ <function main at 0x109404ee0>
+           └ <module 'api.api_video' from '/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py'>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 37, in main
+    data_list = __search_list__(keyword, int(page), int(size))
+                │               │            │          └ '20'
+                │               │            └ '0'
+                │               └ '2'
+                └ <function __search_list__ at 0x109449310>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 176, in __search_list__
+    video.playInfo = __fetch_video_play_info__(video.id, video.node_ids[0])
+    │                │                         │     │   └ <api.video.Video object at 0x1094c0970>
+    │                │                         │     └ 195264
+    │                │                         └ <api.video.Video object at 0x1094c0970>
+    │                └ <function __fetch_video_play_info__ at 0x109449430>
+    └ <api.video.Video object at 0x1094c0970>
+
+AttributeError: 'Video' object has no attribute 'node_ids'

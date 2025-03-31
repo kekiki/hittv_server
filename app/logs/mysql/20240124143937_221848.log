@@ -1,0 +1,17 @@
+2024-01-24 14:40:06.327 | INFO     | api.api_video:main:13 - receive request [home_list]
+2024-01-24 14:40:06.328 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:40:06.341 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '电视剧' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:40:06.345 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '电影' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:40:06.350 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '动漫' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:46:19.007 | INFO     | api.api_video:main:13 - receive request [home_list]
+2024-01-24 14:46:19.008 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:46:19.018 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '电视剧' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:46:19.026 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '电影' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:46:19.032 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '动漫' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:46:19.619 | INFO     | api.api_video:main:13 - receive request [home]
+2024-01-24 14:46:19.776 | INFO     | api.api_video:main:13 - receive request [home_list]
+2024-01-24 14:46:19.776 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:46:19.780 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '电视剧' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:46:19.785 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '电影' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:46:19.788 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` WHERE `type` = '动漫' ORDER BY `created_at` DESC LIMIT 12;
+2024-01-24 14:46:20.824 | INFO     | api.api_video:main:13 - receive request [category]

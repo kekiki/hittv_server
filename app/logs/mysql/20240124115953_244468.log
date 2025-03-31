@@ -1,0 +1,11 @@
+2024-01-24 11:59:55.761 | INFO     | api.api_video:main:13 - receive request [category_list]
+2024-01-24 11:59:55.762 | INFO     | mysql.connector:query:16 - 
+        SELECT * FROM `tv` WHERE `type` = '电视剧' AND `tags` LIKE '%剧情%' AND `publish_date` = 2023 AND `is_end` = 0
+        ORDER BY `created_at` DESC LIMIT 0,20;
+        
+2024-01-24 11:59:55.771 | INFO     | mysql.connector:query:16 - SELECT `url` FROM `tv_262412` WHERE `node` = 'panel7' AND `sort` = 1;
+2024-01-24 11:59:55.774 | INFO     | mysql.connector:query:16 - SELECT `url` FROM `tv_263378` WHERE `node` = 'panel4' AND `sort` = 1;
+2024-01-24 11:59:55.778 | INFO     | mysql.connector:query:16 - SELECT `url` FROM `tv_263414` WHERE `node` = 'panel4' AND `sort` = 1;
+2024-01-24 11:59:55.783 | INFO     | mysql.connector:query:16 - SELECT `url` FROM `tv_262271` WHERE `node` = 'panel5' AND `sort` = 1;
+2024-01-24 11:59:55.788 | INFO     | mysql.connector:query:16 - SELECT `url` FROM `tv_263395` WHERE `node` = 'panel8' AND `sort` = 1;
+2024-01-24 11:59:55.793 | INFO     | mysql.connector:query:16 - SELECT `url` FROM `tv_263426` WHERE `node` = 'panel3' AND `sort` = 1;

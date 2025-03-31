@@ -1,0 +1,600 @@
+2024-04-27 15:09:28.146 | INFO     | api.api_video:main:13 - receive request [search_hot_list]
+2024-04-27 15:09:28.159 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 20;
+2024-04-27 15:09:28.256 | ERROR    | __main__:app_api_video:42 - An error has been caught in function 'app_api_video', process 'MainProcess' (98852), thread 'Thread-2' (123145434910720):
+Traceback (most recent call last):
+
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 616, in connect
+    sock = socket.create_connection(
+           │      └ <function create_connection at 0x103cce820>
+           └ <module 'socket' from '/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/pytho...
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 843, in create_connection
+    raise err
+          └ None
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 831, in create_connection
+    sock.connect(sa)
+    │    │       └ ('::1', 3306, 0, 0)
+    │    └ <method 'connect' of '_socket.socket' objects>
+    └ <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6>
+
+ConnectionRefusedError: [Errno 61] Connection refused
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10392b670>
+    └ <Thread(Thread-2, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x10392b3a0>
+    └ <Thread(Thread-2, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-2, started daemon 123145434910720)>
+    │    │        │    └ (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), radd...
+    │    │        └ <Thread(Thread-2, started daemon 123145434910720)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>>
+    └ <Thread(Thread-2, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('192.168.100.244', 38136)
+    │    │              └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), raddr...
+    │    └ <function BaseServer.finish_request at 0x103cd54c0>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+    │    │                   │        └ ('192.168.100.244', 38136)
+    │    │                   └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), raddr...
+    │    └ <class 'werkzeug.serving.WSGIRequestHandler'>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x103f6e1f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x104e60a30>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 363, in handle
+    super().handle()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+    │    └ <function BaseHTTPRequestHandler.handle_one_request at 0x103f0d1f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x104e60a30>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+    └ <bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x104e60a30>>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 335, in run_wsgi
+    execute(self.server.app)
+    │       │    │      └ <werkzeug.debug.DebuggedApplication object at 0x104dc9cd0>
+    │       │    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+    │       └ <werkzeug.serving.WSGIRequestHandler object at 0x104e60a30>
+    └ <function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x105172040>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 324, in execute
+    for data in application_iter:
+                └ <generator object DebuggedApplication.debug_application at 0x104e57c80>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/debug/__init__.py", line 329, in debug_application
+    app_iter = self.app(environ, start_response)
+               │    │   │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x1051a13a0>
+               │    │   └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+               │    └ <Flask 'task'>
+               └ <werkzeug.debug.DebuggedApplication object at 0x104dc9cd0>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+           │    │        │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x1051a13a0>
+           │    │        └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+           │    └ <function Flask.wsgi_app at 0x1047b0f70>
+           └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               │    └ <function Flask.full_dispatch_request at 0x1047b0430>
+               └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         │    └ <function Flask.dispatch_request at 0x1047b03a0>
+         └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           │    │           │    │              │    │            └ {}
+           │    │           │    │              │    └ 'app_api_video'
+           │    │           │    │              └ <Rule '/api/video' (HEAD, OPTIONS, POST, GET) -> app_api_video>
+           │    │           │    └ {'static': <function Flask.__init__.<locals>.<lambda> at 0x104de45e0>, 'index': <function index at 0x104de4550>, 'terms': <fu...
+           │    │           └ <Flask 'task'>
+           │    └ <function Flask.ensure_sync at 0x1047b0700>
+           └ <Flask 'task'>
+
+> File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/task.py", line 42, in app_api_video
+    return api_video.main()
+           │         └ <function main at 0x104ddef70>
+           └ <module 'api.api_video' from '/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py'>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 41, in main
+    data_list = __search_hot_list__()
+                └ <function __search_hot_list__ at 0x104de4310>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 154, in __search_hot_list__
+    result = connector.query(f'SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 20;')
+             │         └ <function MySQLConnector.query at 0x104ddea60>
+             └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/mysql/connector.py", line 18, in query
+    with self.connect() as conn:
+         │    └ <function MySQLConnector.connect at 0x104dde9d0>
+         └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/mysql/connector.py", line 12, in connect
+    conn = pymysql.connect(host=self.host, user=self.user, password=self.password, db=self.database)
+           │       │            │    │          │    │              │    │            │    └ 'hittv'
+           │       │            │    │          │    │              │    │            └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    │          │    │              │    └ '1234567890'
+           │       │            │    │          │    │              └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    │          │    └ 'root'
+           │       │            │    │          └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    └ 'localhost'
+           │       │            └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       └ <class 'pymysql.connections.Connection'>
+           └ <module 'pymysql' from '/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/__init__.py'>
+
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 352, in __init__
+    self.connect()
+    │    └ <function Connection.connect at 0x104dd3670>
+    └ <pymysql.connections.Connection object at 0x104e60eb0>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 668, in connect
+    raise exc
+          └ OperationalError(2003, "Can't connect to MySQL server on 'localhost' ([Errno 61] Connection refused)")
+
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 61] Connection refused)")
+2024-04-27 15:09:28.643 | INFO     | api.api_video:main:13 - receive request [home_list]
+2024-04-27 15:09:28.643 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 12;
+2024-04-27 15:09:28.645 | ERROR    | __main__:app_api_video:42 - An error has been caught in function 'app_api_video', process 'MainProcess' (98852), thread 'Thread-3' (123145434910720):
+Traceback (most recent call last):
+
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 616, in connect
+    sock = socket.create_connection(
+           │      └ <function create_connection at 0x103cce820>
+           └ <module 'socket' from '/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/pytho...
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 843, in create_connection
+    raise err
+          └ None
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 831, in create_connection
+    sock.connect(sa)
+    │    │       └ ('::1', 3306, 0, 0)
+    │    └ <method 'connect' of '_socket.socket' objects>
+    └ <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6>
+
+ConnectionRefusedError: [Errno 61] Connection refused
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10392b670>
+    └ <Thread(Thread-3, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x10392b3a0>
+    └ <Thread(Thread-3, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-3, started daemon 123145434910720)>
+    │    │        │    └ (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), radd...
+    │    │        └ <Thread(Thread-3, started daemon 123145434910720)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>>
+    └ <Thread(Thread-3, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('192.168.100.244', 38138)
+    │    │              └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), raddr...
+    │    └ <function BaseServer.finish_request at 0x103cd54c0>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+    │    │                   │        └ ('192.168.100.244', 38138)
+    │    │                   └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), raddr...
+    │    └ <class 'werkzeug.serving.WSGIRequestHandler'>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x103f6e1f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x104e60c70>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 363, in handle
+    super().handle()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+    │    └ <function BaseHTTPRequestHandler.handle_one_request at 0x103f0d1f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x104e60c70>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+    └ <bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x104e60c70>>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 335, in run_wsgi
+    execute(self.server.app)
+    │       │    │      └ <werkzeug.debug.DebuggedApplication object at 0x104dc9cd0>
+    │       │    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+    │       └ <werkzeug.serving.WSGIRequestHandler object at 0x104e60c70>
+    └ <function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x10512a700>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 324, in execute
+    for data in application_iter:
+                └ <generator object DebuggedApplication.debug_application at 0x104e57c80>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/debug/__init__.py", line 329, in debug_application
+    app_iter = self.app(environ, start_response)
+               │    │   │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x1050ee4c0>
+               │    │   └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+               │    └ <Flask 'task'>
+               └ <werkzeug.debug.DebuggedApplication object at 0x104dc9cd0>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+           │    │        │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x1050ee4c0>
+           │    │        └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+           │    └ <function Flask.wsgi_app at 0x1047b0f70>
+           └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               │    └ <function Flask.full_dispatch_request at 0x1047b0430>
+               └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         │    └ <function Flask.dispatch_request at 0x1047b03a0>
+         └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           │    │           │    │              │    │            └ {}
+           │    │           │    │              │    └ 'app_api_video'
+           │    │           │    │              └ <Rule '/api/video' (HEAD, OPTIONS, POST, GET) -> app_api_video>
+           │    │           │    └ {'static': <function Flask.__init__.<locals>.<lambda> at 0x104de45e0>, 'index': <function index at 0x104de4550>, 'terms': <fu...
+           │    │           └ <Flask 'task'>
+           │    └ <function Flask.ensure_sync at 0x1047b0700>
+           └ <Flask 'task'>
+
+> File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/task.py", line 42, in app_api_video
+    return api_video.main()
+           │         └ <function main at 0x104ddef70>
+           └ <module 'api.api_video' from '/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py'>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 16, in main
+    data_list = __home_list__()
+                └ <function __home_list__ at 0x104de4040>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 61, in __home_list__
+    new_video_list = __fetch_newest_video_list__(limit=12)
+                     └ <function __fetch_newest_video_list__ at 0x104de4160>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 104, in __fetch_newest_video_list__
+    result = connector.query(f'SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT {limit};')
+             │         └ <function MySQLConnector.query at 0x104ddea60>
+             └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/mysql/connector.py", line 18, in query
+    with self.connect() as conn:
+         │    └ <function MySQLConnector.connect at 0x104dde9d0>
+         └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/mysql/connector.py", line 12, in connect
+    conn = pymysql.connect(host=self.host, user=self.user, password=self.password, db=self.database)
+           │       │            │    │          │    │              │    │            │    └ 'hittv'
+           │       │            │    │          │    │              │    │            └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    │          │    │              │    └ '1234567890'
+           │       │            │    │          │    │              └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    │          │    └ 'root'
+           │       │            │    │          └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    └ 'localhost'
+           │       │            └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       └ <class 'pymysql.connections.Connection'>
+           └ <module 'pymysql' from '/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/__init__.py'>
+
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 352, in __init__
+    self.connect()
+    │    └ <function Connection.connect at 0x104dd3670>
+    └ <pymysql.connections.Connection object at 0x104e60a00>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 668, in connect
+    raise exc
+          └ OperationalError(2003, "Can't connect to MySQL server on 'localhost' ([Errno 61] Connection refused)")
+
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 61] Connection refused)")
+2024-04-27 15:09:59.728 | INFO     | api.api_video:main:13 - receive request [search_hot_list]
+2024-04-27 15:09:59.729 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 20;
+2024-04-27 15:09:59.731 | ERROR    | __main__:app_api_video:42 - An error has been caught in function 'app_api_video', process 'MainProcess' (98852), thread 'Thread-4' (123145434910720):
+Traceback (most recent call last):
+
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 616, in connect
+    sock = socket.create_connection(
+           │      └ <function create_connection at 0x103cce820>
+           └ <module 'socket' from '/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/pytho...
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 843, in create_connection
+    raise err
+          └ None
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 831, in create_connection
+    sock.connect(sa)
+    │    │       └ ('::1', 3306, 0, 0)
+    │    └ <method 'connect' of '_socket.socket' objects>
+    └ <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6>
+
+ConnectionRefusedError: [Errno 61] Connection refused
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10392b670>
+    └ <Thread(Thread-4, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x10392b3a0>
+    └ <Thread(Thread-4, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-4, started daemon 123145434910720)>
+    │    │        │    └ (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), radd...
+    │    │        └ <Thread(Thread-4, started daemon 123145434910720)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>>
+    └ <Thread(Thread-4, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('192.168.100.161', 56372)
+    │    │              └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), raddr...
+    │    └ <function BaseServer.finish_request at 0x103cd54c0>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+    │    │                   │        └ ('192.168.100.161', 56372)
+    │    │                   └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), raddr...
+    │    └ <class 'werkzeug.serving.WSGIRequestHandler'>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x103f6e1f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x1052578e0>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 363, in handle
+    super().handle()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+    │    └ <function BaseHTTPRequestHandler.handle_one_request at 0x103f0d1f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x1052578e0>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+    └ <bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x1052578e0>>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 335, in run_wsgi
+    execute(self.server.app)
+    │       │    │      └ <werkzeug.debug.DebuggedApplication object at 0x104dc9cd0>
+    │       │    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+    │       └ <werkzeug.serving.WSGIRequestHandler object at 0x1052578e0>
+    └ <function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x1051d7790>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 324, in execute
+    for data in application_iter:
+                └ <generator object DebuggedApplication.debug_application at 0x104e57c80>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/debug/__init__.py", line 329, in debug_application
+    app_iter = self.app(environ, start_response)
+               │    │   │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x10518ca60>
+               │    │   └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+               │    └ <Flask 'task'>
+               └ <werkzeug.debug.DebuggedApplication object at 0x104dc9cd0>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+           │    │        │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x10518ca60>
+           │    │        └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+           │    └ <function Flask.wsgi_app at 0x1047b0f70>
+           └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               │    └ <function Flask.full_dispatch_request at 0x1047b0430>
+               └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         │    └ <function Flask.dispatch_request at 0x1047b03a0>
+         └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           │    │           │    │              │    │            └ {}
+           │    │           │    │              │    └ 'app_api_video'
+           │    │           │    │              └ <Rule '/api/video' (HEAD, OPTIONS, POST, GET) -> app_api_video>
+           │    │           │    └ {'static': <function Flask.__init__.<locals>.<lambda> at 0x104de45e0>, 'index': <function index at 0x104de4550>, 'terms': <fu...
+           │    │           └ <Flask 'task'>
+           │    └ <function Flask.ensure_sync at 0x1047b0700>
+           └ <Flask 'task'>
+
+> File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/task.py", line 42, in app_api_video
+    return api_video.main()
+           │         └ <function main at 0x104ddef70>
+           └ <module 'api.api_video' from '/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py'>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 41, in main
+    data_list = __search_hot_list__()
+                └ <function __search_hot_list__ at 0x104de4310>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 154, in __search_hot_list__
+    result = connector.query(f'SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 20;')
+             │         └ <function MySQLConnector.query at 0x104ddea60>
+             └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/mysql/connector.py", line 18, in query
+    with self.connect() as conn:
+         │    └ <function MySQLConnector.connect at 0x104dde9d0>
+         └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/mysql/connector.py", line 12, in connect
+    conn = pymysql.connect(host=self.host, user=self.user, password=self.password, db=self.database)
+           │       │            │    │          │    │              │    │            │    └ 'hittv'
+           │       │            │    │          │    │              │    │            └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    │          │    │              │    └ '1234567890'
+           │       │            │    │          │    │              └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    │          │    └ 'root'
+           │       │            │    │          └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    └ 'localhost'
+           │       │            └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       └ <class 'pymysql.connections.Connection'>
+           └ <module 'pymysql' from '/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/__init__.py'>
+
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 352, in __init__
+    self.connect()
+    │    └ <function Connection.connect at 0x104dd3670>
+    └ <pymysql.connections.Connection object at 0x105257f40>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 668, in connect
+    raise exc
+          └ OperationalError(2003, "Can't connect to MySQL server on 'localhost' ([Errno 61] Connection refused)")
+
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 61] Connection refused)")
+2024-04-27 15:10:29.663 | INFO     | api.api_video:main:13 - receive request [home_list]
+2024-04-27 15:10:29.664 | INFO     | mysql.connector:query:16 - SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT 12;
+2024-04-27 15:10:29.666 | ERROR    | __main__:app_api_video:42 - An error has been caught in function 'app_api_video', process 'MainProcess' (98852), thread 'Thread-11' (123145434910720):
+Traceback (most recent call last):
+
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 616, in connect
+    sock = socket.create_connection(
+           │      └ <function create_connection at 0x103cce820>
+           └ <module 'socket' from '/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/pytho...
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 843, in create_connection
+    raise err
+          └ None
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 831, in create_connection
+    sock.connect(sa)
+    │    │       └ ('::1', 3306, 0, 0)
+    │    └ <method 'connect' of '_socket.socket' objects>
+    └ <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET6, type=SocketKind.SOCK_STREAM, proto=6>
+
+ConnectionRefusedError: [Errno 61] Connection refused
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10392b670>
+    └ <Thread(Thread-11, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 973, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x10392b3a0>
+    └ <Thread(Thread-11, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-11, started daemon 123145434910720)>
+    │    │        │    └ (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), radd...
+    │    │        └ <Thread(Thread-11, started daemon 123145434910720)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>>
+    └ <Thread(Thread-11, started daemon 123145434910720)>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('192.168.100.161', 56413)
+    │    │              └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), raddr...
+    │    └ <function BaseServer.finish_request at 0x103cd54c0>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+    │    │                   │        └ ('192.168.100.161', 56413)
+    │    │                   └ <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('192.168.100.161', 80), raddr...
+    │    └ <class 'werkzeug.serving.WSGIRequestHandler'>
+    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x103f6e1f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x1054cc070>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 363, in handle
+    super().handle()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+    │    └ <function BaseHTTPRequestHandler.handle_one_request at 0x103f0d1f0>
+    └ <werkzeug.serving.WSGIRequestHandler object at 0x1054cc070>
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+    └ <bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x1054cc070>>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 335, in run_wsgi
+    execute(self.server.app)
+    │       │    │      └ <werkzeug.debug.DebuggedApplication object at 0x104dc9cd0>
+    │       │    └ <werkzeug.serving.ThreadedWSGIServer object at 0x104de99d0>
+    │       └ <werkzeug.serving.WSGIRequestHandler object at 0x1054cc070>
+    └ <function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x1055000d0>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/serving.py", line 324, in execute
+    for data in application_iter:
+                └ <generator object DebuggedApplication.debug_application at 0x105280660>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/werkzeug/debug/__init__.py", line 329, in debug_application
+    app_iter = self.app(environ, start_response)
+               │    │   │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x1055008b0>
+               │    │   └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+               │    └ <Flask 'task'>
+               └ <werkzeug.debug.DebuggedApplication object at 0x104dc9cd0>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+           │    │        │        └ <function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x1055008b0>
+           │    │        └ {'wsgi.version': (1, 0), 'wsgi.url_scheme': 'http', 'wsgi.input': <_io.BufferedReader name=7>, 'wsgi.errors': <_io.TextIOWrap...
+           │    └ <function Flask.wsgi_app at 0x1047b0f70>
+           └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+               │    └ <function Flask.full_dispatch_request at 0x1047b0430>
+               └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+         │    └ <function Flask.dispatch_request at 0x1047b03a0>
+         └ <Flask 'task'>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           │    │           │    │              │    │            └ {}
+           │    │           │    │              │    └ 'app_api_video'
+           │    │           │    │              └ <Rule '/api/video' (HEAD, OPTIONS, POST, GET) -> app_api_video>
+           │    │           │    └ {'static': <function Flask.__init__.<locals>.<lambda> at 0x104de45e0>, 'index': <function index at 0x104de4550>, 'terms': <fu...
+           │    │           └ <Flask 'task'>
+           │    └ <function Flask.ensure_sync at 0x1047b0700>
+           └ <Flask 'task'>
+
+> File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/task.py", line 42, in app_api_video
+    return api_video.main()
+           │         └ <function main at 0x104ddef70>
+           └ <module 'api.api_video' from '/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py'>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 16, in main
+    data_list = __home_list__()
+                └ <function __home_list__ at 0x104de4040>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 61, in __home_list__
+    new_video_list = __fetch_newest_video_list__(limit=12)
+                     └ <function __fetch_newest_video_list__ at 0x104de4160>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/api/api_video.py", line 104, in __fetch_newest_video_list__
+    result = connector.query(f'SELECT * FROM `tv` ORDER BY `created_at` DESC LIMIT {limit};')
+             │         └ <function MySQLConnector.query at 0x104ddea60>
+             └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/mysql/connector.py", line 18, in query
+    with self.connect() as conn:
+         │    └ <function MySQLConnector.connect at 0x104dde9d0>
+         └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+
+  File "/Users/kejie/AndroidStudioProjects/hittv/hittv_server/app/mysql/connector.py", line 12, in connect
+    conn = pymysql.connect(host=self.host, user=self.user, password=self.password, db=self.database)
+           │       │            │    │          │    │              │    │            │    └ 'hittv'
+           │       │            │    │          │    │              │    │            └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    │          │    │              │    └ '1234567890'
+           │       │            │    │          │    │              └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    │          │    └ 'root'
+           │       │            │    │          └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       │            │    └ 'localhost'
+           │       │            └ <mysql.connector.MySQLConnector object at 0x104ca3250>
+           │       └ <class 'pymysql.connections.Connection'>
+           └ <module 'pymysql' from '/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/__init__.py'>
+
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 352, in __init__
+    self.connect()
+    │    └ <function Connection.connect at 0x104dd3670>
+    └ <pymysql.connections.Connection object at 0x1054cc670>
+  File "/Users/kejie/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 668, in connect
+    raise exc
+          └ OperationalError(2003, "Can't connect to MySQL server on 'localhost' ([Errno 61] Connection refused)")
+
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 61] Connection refused)")
